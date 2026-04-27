@@ -21,6 +21,15 @@ export function Nav() {
   }, [location.pathname])
 
   useEffect(() => {
+    if (!mobileOpen) return undefined
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [mobileOpen])
+
+  useEffect(() => {
     if (!servicesOpen) return undefined
     const onDocumentClick = (event) => {
       if (!servicesRef.current?.contains(event.target)) {
@@ -123,7 +132,7 @@ export function Nav() {
           Close
         </button>
         {ctaItem ? (
-          <Link className="mobile-nav-link btn btn--primary" to={ctaItem.path}>
+          <Link className="btn btn--primary mobile-nav-cta" to={ctaItem.path}>
             {ctaItem.label}
           </Link>
         ) : null}
