@@ -18,7 +18,7 @@ export function PortfolioPage() {
 
   return (
     <div style={{ paddingTop: 64 }}>
-      <section className="section section--alt ia-hero">
+      <section className="section section--alt ia-hero" style={{ paddingTop: 44, paddingBottom: 46 }}>
         <div className="container ia-hero-grid">
           <div>
             <div className="breadcrumb">Home / Work</div>
@@ -48,7 +48,7 @@ export function PortfolioPage() {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 32, paddingBottom: 32 }}>
+      <section className="section" style={{ paddingTop: 20, paddingBottom: 20 }}>
         <div className="container">
           <div className="decision-panel compact">
             <h3>How to use this page</h3>

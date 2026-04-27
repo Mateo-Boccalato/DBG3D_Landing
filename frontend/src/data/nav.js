@@ -11,7 +11,7 @@ export const NAV_LINKS = [
     ],
   },
   { label: 'Process', path: '/process' },
-  { label: 'Resources', path: '/resources' },
   { label: 'About', path: '/about' },
+  { label: 'Resources', path: '/resources' },
   { label: 'Start a Project', path: '/contact', cta: true },
 ]

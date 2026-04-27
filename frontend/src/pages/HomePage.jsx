@@ -11,10 +11,10 @@ export function HomePage() {
         <div className="container ia-hero-grid">
           <div>
             <div className="tag">Designing Blueprints Group</div>
-            <h1 className="section-title">Turn real-world parts into production-ready CAD.</h1>
+            <h1 className="section-title">Get production-ready CAD from your physical parts.</h1>
             <p className="section-sub">
-              Precision 3D scanning, product design, and delivery-first workflows for teams that
-              need usable outputs fast.
+              Send your project details today. Get a scoped response within 24-48 hours with the
+              right workflow and deliverables.
             </p>
             <div className="ia-cta-row">
               <Link className="btn btn--primary" to="/contact">
@@ -22,9 +22,6 @@ export function HomePage() {
               </Link>
               <Link className="btn btn--outline" to="/work">
                 View Work
-              </Link>
-              <Link className="btn btn--ghost" to="/resources">
-                Watch Tutorials
               </Link>
             </div>
           </div>

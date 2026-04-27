@@ -139,6 +139,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 28px;
   align-items: start;
 }
+.ia-hero-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 820px;
+}
 .ia-cta-row {
   display: flex;
   flex-wrap: wrap;
@@ -1093,6 +1097,11 @@ nav {
   color: var(--danger);
   margin-top: 12px;
 }
+.form-note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text3);
+}
 
 /* ===== PORTFOLIO PAGE ===== */
 .pf-btn {
@@ -1116,23 +1125,34 @@ nav {
 .pf-btn:active { transform: translateY(1px); }
 .pf-active { color: var(--accent) !important; border-color: var(--accent) !important; background: var(--accent-glow) !important; }
 
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
 .pf-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius2);
   overflow: hidden;
+  height: 100%;
   transition:
     border-color var(--motion-base) var(--ease-standard),
     transform var(--motion-base) var(--ease-standard);
 }
 .pf-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
 .pf-live {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
 }
-@media (max-width: 700px) { .pf-live { grid-template-columns: 1fr; } }
 
-.pf-viewer-wrap { position: relative; background: #040608; min-height: 400px; }
+.pf-viewer-wrap {
+  position: relative;
+  background: #040608;
+  aspect-ratio: 16/9;
+  min-height: 0;
+}
 .pf-canvas { width: 100% !important; height: 100% !important; display: block; position: absolute; inset: 0; }
 .pf-loading {
   position: absolute; inset: 0; background: #040608;
@@ -1156,17 +1176,17 @@ nav {
 .pf-vbtn:hover { color: var(--accent); border-color: var(--accent2); }
 .pf-vbtn:active { transform: translateY(1px); }
 
-.pf-info { padding: 24px 28px; }
+.pf-info { padding: 16px 16px 14px; }
 .pf-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 6px; }
 .pf-tag { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; }
 .pf-fmtbadge { font-family: var(--font-mono); font-size: 10px; color: var(--text3); background: var(--bg3); border: 1px solid var(--border); padding: 3px 8px; border-radius: 2px; }
-.pf-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
-.pf-desc { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; }
+.pf-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.2; }
+.pf-desc { font-size: 12px; color: var(--text2); line-height: 1.55; margin-bottom: 12px; }
 .pf-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .pf-yt-link { font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text2); border: 1px solid var(--border2); padding: 9px 16px; border-radius: var(--radius); transition: all .2s; display: inline-flex; align-items: center; gap: 6px; }
 .pf-yt-link:hover { color: #ff4444; border-color: #ff4444; }
 
-.pf-pending .pf-info { padding: 18px 20px; }
+.pf-pending .pf-info { padding: 16px 16px 14px; }
 .pf-thumb { aspect-ratio: 16/9; background: var(--bg3); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .pf-thumb-bg { position: absolute; inset: 0; background: linear-gradient(135deg, var(--bg3), var(--bg2)); }
 .pf-thumb-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 28px 28px; }
@@ -1438,6 +1458,21 @@ nav {
   color: var(--text2);
   line-height: 1.6;
 }
+.contact-trust-list {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.contact-trust-list li {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.5;
+}
+.contact-trust-list li::before {
+  content: '• ';
+  color: var(--accent);
+}
 .contact-form-wrap {
   background: var(--card);
   border: 1px solid var(--border);
@@ -1596,6 +1631,7 @@ footer {
   .ia-cta-row { width: 100%; }
   .ia-cta-row .btn { width: 100%; justify-content: center; }
   .ia-services-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 500px) {
   .services-grid { grid-template-columns: 1fr; }

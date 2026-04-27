@@ -9,12 +9,12 @@ export function ContactPage() {
       <section className="section">
         <div className="container">
           <div className="tag">Contact</div>
-          <h1 className="section-title">Tell us about your project.</h1>
+          <h1 className="section-title">Request your project quote.</h1>
           <div className="contact-layout">
             <div>
-              <div className="contact-info-title">How to reach DBG</div>
+              <div className="contact-info-title">What happens after you submit</div>
               <p className="contact-info-text">
-                Share as much detail as you can about your part, target outcome, and timeline.
+                We review your scope, match the right workflow, and reply with practical next steps.
               </p>
               <div className="contact-details">
                 <div className="contact-detail">
@@ -32,12 +32,17 @@ export function ContactPage() {
                   </div>
                 </div>
               </div>
+              <ul className="contact-trust-list">
+                <li>Clear scope and deliverable recommendations</li>
+                <li>No generic templates, project-specific response</li>
+                <li>Confidential handling of part details and files</li>
+              </ul>
               <div className="contact-response-note">
                 In-person and on-site sessions are scheduled based on scope and mutual availability.
               </div>
             </div>
             <div className="contact-form-wrap">
-              <div className="contact-form-title">Project Inquiry Form</div>
+              <div className="contact-form-title">Start Your Quote Request</div>
               <ContactForm />
             </div>
           </div>

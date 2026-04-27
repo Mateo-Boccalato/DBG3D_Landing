@@ -8,12 +8,8 @@ const WEB3FORMS_ACCESS_KEY =
 export function ContactForm() {
   const INITIAL_FIELDS = {
     name: '',
-    company: '',
     email: '',
-    phone: '',
     service: '',
-    color: '',
-    size: '',
     details: '',
   }
   const [fields, setFields] = useState({
@@ -70,7 +66,7 @@ export function ContactForm() {
     return (
       <>
         <div className="form-success show" id="contact-success">
-          ✓ Inquiry received! Thank you — DBG will respond within 24-48 hours.
+          ✓ Quote request received. DBG will respond within 24-48 hours.
         </div>
         <button
           className="btn btn--outline"
@@ -105,18 +101,6 @@ export function ContactForm() {
         {errors.name && <div className="field-error">{errors.name}</div>}
       </div>
       <div className="form-group">
-        <label className="form-label" htmlFor="contact-company">
-          Company
-        </label>
-        <input
-          className="form-input"
-          id="contact-company"
-          name="company"
-          onChange={setField('company')}
-          value={fields.company}
-        />
-      </div>
-      <div className="form-group">
         <label className="form-label" htmlFor="contact-email">
           Email *
         </label>
@@ -132,20 +116,8 @@ export function ContactForm() {
         {errors.email && <div className="field-error">{errors.email}</div>}
       </div>
       <div className="form-group">
-        <label className="form-label" htmlFor="contact-phone">
-          Phone
-        </label>
-        <input
-          className="form-input"
-          id="contact-phone"
-          name="phone"
-          onChange={setField('phone')}
-          value={fields.phone}
-        />
-      </div>
-      <div className="form-group">
         <label className="form-label" htmlFor="contact-service">
-          Service
+          Service Focus
         </label>
         <select
           className="form-select"
@@ -162,33 +134,9 @@ export function ContactForm() {
           <option>Multiple Services / Not Sure</option>
         </select>
       </div>
-      <div className="form-group">
-        <label className="form-label" htmlFor="contact-color">
-          Color
-        </label>
-        <input
-          className="form-input"
-          id="contact-color"
-          name="color"
-          onChange={setField('color')}
-          value={fields.color}
-        />
-      </div>
-      <div className="form-group">
-        <label className="form-label" htmlFor="contact-size">
-          Size
-        </label>
-        <input
-          className="form-input"
-          id="contact-size"
-          name="size"
-          onChange={setField('size')}
-          value={fields.size}
-        />
-      </div>
       <div className="form-group full">
         <label className="form-label" htmlFor="contact-details">
-          Project Details *
+          Project Details (part, goal, timeline) *
         </label>
         <textarea
           className="form-textarea"
@@ -202,8 +150,9 @@ export function ContactForm() {
       </div>
       <div className="form-group full form-submit">
         <button className="btn btn--primary" disabled={status === 'submitting'} type="submit">
-          {status === 'submitting' ? 'Sending...' : 'Send Inquiry →'}
+          {status === 'submitting' ? 'Submitting Quote Request...' : 'Get My Quote →'}
         </button>
+        <div className="form-note">By submitting, you agree to be contacted about this project request.</div>
         {status === 'error' && !Object.keys(errors).length ? (
           <div className="form-error">Something went wrong. Please try again.</div>
         ) : null}

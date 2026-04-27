@@ -20,11 +20,11 @@ export function YouTubePage() {
               not replace project delivery.
             </p>
             <div className="ia-cta-row">
-              <Link className="btn btn--outline" to="/work">
-                View Work
-              </Link>
               <Link className="btn btn--primary" to="/contact">
                 Start a Project
+              </Link>
+              <Link className="btn btn--outline" to="/work">
+                View Work
               </Link>
             </div>
           </div>
