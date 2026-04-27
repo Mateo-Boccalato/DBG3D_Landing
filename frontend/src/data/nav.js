@@ -1,17 +1,17 @@
 export const NAV_LINKS = [
-  { label: 'Home', path: '/' },
+  { label: 'Work', path: '/work' },
   {
     label: 'Services',
     path: '/services',
     children: [
       { label: '3D Scanning', path: '/services/scanning', serviceId: 'scanning' },
-      { label: 'Reverse Engineering', path: '/services/reverse', serviceId: 'reverse' },
+      { label: 'Product Design', path: '/services/product-design', serviceId: 'product-design' },
       { label: '3D Printing', path: '/services/printing', serviceId: 'printing' },
       { label: 'Coaching', path: '/services/coaching', serviceId: 'coaching' },
     ],
   },
-  { label: 'YouTube', path: '/youtube' },
-  { label: 'Portfolio', path: '/portfolio' },
+  { label: 'Process', path: '/process' },
+  { label: 'Resources', path: '/resources' },
   { label: 'About', path: '/about' },
-  { label: 'Get a Quote', path: '/contact' },
+  { label: 'Start a Project', path: '/contact', cta: true },
 ]

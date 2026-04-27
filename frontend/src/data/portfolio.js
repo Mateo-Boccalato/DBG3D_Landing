@@ -4,7 +4,7 @@ export const PORTFOLIO_ITEMS = [
     title: 'Railing Guide',
     tier: 'T01 · Household · Beginner',
     category: ['available', 'household'],
-    description: 'Precision reverse-engineered railing guide with two mesh bodies.',
+    description: 'Precision modeled railing guide with two mesh bodies.',
     tags: ['STP', 'QuickSurface Pro'],
     available: true,
     filename: 'Railing-Guide.stp',

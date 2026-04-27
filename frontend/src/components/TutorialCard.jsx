@@ -1,6 +1,6 @@
 export function TutorialCard({ tutorial }) {
   return (
-    <div className="tutorial-card">
+    <div className="tutorial-card tutorial-card--static">
       <div className="tutorial-thumb">
         <div className="tutorial-thumb-bg" />
         <div className="tutorial-thumb-grid" />
@@ -13,6 +13,7 @@ export function TutorialCard({ tutorial }) {
         </div>
         <div className="tutorial-title">{tutorial.title}</div>
         <div className="tutorial-desc">{tutorial.description}</div>
+        <span className="tutorial-coming">Coming Soon</span>
       </div>
     </div>
   )

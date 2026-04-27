@@ -14,18 +14,18 @@ export const SERVICES = [
     cta: 'Request Scanning Quote',
   },
   {
-    id: 'reverse',
-    title: 'Reverse Engineering',
+    id: 'product-design',
+    title: 'Product Design',
     icon: '⚙️',
     description:
-      'DBG converts scan data into fully parametric CAD models in QuickSurface Pro for clean manufacturing-ready deliverables.',
+      'DBG turns requirements and geometry into manufacturable product concepts and production-ready CAD outputs.',
     features: [
-      'Scan-to-CAD modeling in QuickSurface Pro',
+      'Concept-to-CAD product development workflow',
       'Deliverable: fully parametric .STP file',
-      'Ideal for worn parts, legacy components, and right-to-repair',
-      'Work performed under strict confidentiality',
+      'Ideal for new parts, redesigns, and manufacturability refinement',
+      'Design reviews and iteration checkpoints included',
     ],
-    cta: 'Request RE Quote',
+    cta: 'Request Product Design Quote',
   },
   {
     id: 'printing',

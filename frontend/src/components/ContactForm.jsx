@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { submitContact } from '../services/api'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const WEB3FORMS_URL = 'https://api.web3forms.com/submit'
+const WEB3FORMS_ACCESS_KEY =
+  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '58af5a5e-114c-4fc3-ad4d-b3b7ca4360ee'
 
 export function ContactForm() {
-  const [fields, setFields] = useState({
+  const INITIAL_FIELDS = {
     name: '',
     company: '',
     email: '',
@@ -13,6 +15,9 @@ export function ContactForm() {
     color: '',
     size: '',
     details: '',
+  }
+  const [fields, setFields] = useState({
+    ...INITIAL_FIELDS,
   })
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle')
@@ -41,19 +46,45 @@ export function ContactForm() {
     setErrors({})
     setStatus('submitting')
     try {
-      await submitContact(fields)
+      const formData = new FormData(e.currentTarget)
+      formData.append('access_key', WEB3FORMS_ACCESS_KEY)
+      formData.append('subject', 'New DBG3D Contact Inquiry')
+      formData.append('from_name', 'DBG3D Contact Form')
+
+      const response = await fetch(WEB3FORMS_URL, {
+        method: 'POST',
+        body: formData,
+      })
+      const data = await response.json()
+      if (!data.success) {
+        throw new Error(data.message || 'Submission failed')
+      }
+
       setStatus('success')
     } catch (err) {
-      if (err?.errors) setErrors(err.errors)
       setStatus('error')
     }
   }
 
   if (status === 'success') {
     return (
-      <div className="form-success show" id="contact-success">
-        ✓ Inquiry received! Thank you — DBG will respond within 24-48 hours.
-      </div>
+      <>
+        <div className="form-success show" id="contact-success">
+          ✓ Inquiry received! Thank you — DBG will respond within 24-48 hours.
+        </div>
+        <button
+          className="btn btn--outline"
+          onClick={() => {
+            setFields(INITIAL_FIELDS)
+            setErrors({})
+            setStatus('idle')
+          }}
+          style={{ marginTop: 12 }}
+          type="button"
+        >
+          Submit Another Inquiry
+        </button>
+      </>
     )
   }
 
@@ -63,36 +94,69 @@ export function ContactForm() {
         <label className="form-label" htmlFor="contact-name">
           Name *
         </label>
-        <input className="form-input" id="contact-name" onChange={setField('name')} value={fields.name} />
+        <input
+          className="form-input"
+          id="contact-name"
+          name="name"
+          onChange={setField('name')}
+          required
+          value={fields.name}
+        />
         {errors.name && <div className="field-error">{errors.name}</div>}
       </div>
       <div className="form-group">
         <label className="form-label" htmlFor="contact-company">
           Company
         </label>
-        <input className="form-input" id="contact-company" onChange={setField('company')} value={fields.company} />
+        <input
+          className="form-input"
+          id="contact-company"
+          name="company"
+          onChange={setField('company')}
+          value={fields.company}
+        />
       </div>
       <div className="form-group">
         <label className="form-label" htmlFor="contact-email">
           Email *
         </label>
-        <input className="form-input" id="contact-email" onChange={setField('email')} type="email" value={fields.email} />
+        <input
+          className="form-input"
+          id="contact-email"
+          name="email"
+          onChange={setField('email')}
+          required
+          type="email"
+          value={fields.email}
+        />
         {errors.email && <div className="field-error">{errors.email}</div>}
       </div>
       <div className="form-group">
         <label className="form-label" htmlFor="contact-phone">
           Phone
         </label>
-        <input className="form-input" id="contact-phone" onChange={setField('phone')} value={fields.phone} />
+        <input
+          className="form-input"
+          id="contact-phone"
+          name="phone"
+          onChange={setField('phone')}
+          value={fields.phone}
+        />
       </div>
       <div className="form-group">
         <label className="form-label" htmlFor="contact-service">
           Service
         </label>
-        <select className="form-select" id="contact-service" onChange={setField('service')} value={fields.service}>
+        <select
+          className="form-select"
+          id="contact-service"
+          name="service"
+          onChange={setField('service')}
+          value={fields.service}
+        >
           <option value="">Select one...</option>
           <option>3D Scanning</option>
-          <option>Reverse Engineering</option>
+          <option>Product Design</option>
           <option>3D Printing</option>
           <option>Coaching</option>
           <option>Multiple Services / Not Sure</option>
@@ -102,19 +166,38 @@ export function ContactForm() {
         <label className="form-label" htmlFor="contact-color">
           Color
         </label>
-        <input className="form-input" id="contact-color" onChange={setField('color')} value={fields.color} />
+        <input
+          className="form-input"
+          id="contact-color"
+          name="color"
+          onChange={setField('color')}
+          value={fields.color}
+        />
       </div>
       <div className="form-group">
         <label className="form-label" htmlFor="contact-size">
           Size
         </label>
-        <input className="form-input" id="contact-size" onChange={setField('size')} value={fields.size} />
+        <input
+          className="form-input"
+          id="contact-size"
+          name="size"
+          onChange={setField('size')}
+          value={fields.size}
+        />
       </div>
       <div className="form-group full">
         <label className="form-label" htmlFor="contact-details">
           Project Details *
         </label>
-        <textarea className="form-textarea" id="contact-details" onChange={setField('details')} value={fields.details} />
+        <textarea
+          className="form-textarea"
+          id="contact-details"
+          name="details"
+          onChange={setField('details')}
+          required
+          value={fields.details}
+        />
         {errors.details && <div className="field-error">{errors.details}</div>}
       </div>
       <div className="form-group full form-submit">

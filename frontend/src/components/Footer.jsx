@@ -13,7 +13,7 @@ export function Footer() {
               </div>
             </div>
             <p className="footer-tagline">
-              3D scanning, reverse engineering CAD, and production-focused training.
+              3D scanning, product design CAD, and production-focused training.
             </p>
           </div>
           <div>
@@ -22,8 +22,8 @@ export function Footer() {
               <Link className="footer-link" to="/services/scanning">
                 3D Scanning
               </Link>
-              <Link className="footer-link" to="/services/reverse">
-                Reverse Engineering
+              <Link className="footer-link" to="/services/product-design">
+                Product Design
               </Link>
               <Link className="footer-link" to="/services/printing">
                 3D Printing
@@ -36,14 +36,17 @@ export function Footer() {
           <div>
             <div className="footer-col-title">Company</div>
             <div className="footer-links">
+              <Link className="footer-link" to="/process">
+                Process
+              </Link>
               <Link className="footer-link" to="/about">
                 About
               </Link>
-              <Link className="footer-link" to="/portfolio">
-                Portfolio
+              <Link className="footer-link" to="/work">
+                Work
               </Link>
-              <Link className="footer-link" to="/youtube">
-                YouTube
+              <Link className="footer-link" to="/resources">
+                Resources
               </Link>
               <Link className="footer-link" to="/contact">
                 Contact

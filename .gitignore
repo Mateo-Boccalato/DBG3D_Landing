@@ -6,3 +6,4 @@ backend/src/db/*.sqlite
 .env
 frontend/.env
 backend/.env
+.DS_Store
