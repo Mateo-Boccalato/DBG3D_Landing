@@ -1518,10 +1518,10 @@ nav {
   z-index: -1;
 }
 .about-bio {
-  font-size: 16px;
-  color: var(--text2);
-  line-height: 1.8;
-  margin-bottom: 24px;
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 20px;
 }
 .about-credentials { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
 .about-credential {
