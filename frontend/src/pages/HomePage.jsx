@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import { SERVICES } from '../data/services'
 import { usePageTitle } from '../hooks/usePageTitle'
 
+const VALUE_PROPOSITION =
+  "Capturing what exists, enabling what's next — DBG3D turns physical reality into precise digital assets that keep your operations running and your innovations moving forward."
+
 export function HomePage() {
   usePageTitle('Home')
 
@@ -16,6 +19,7 @@ export function HomePage() {
               Send your project details today. Get a scoped response within 24-48 hours with the
               right workflow and deliverables.
             </p>
+            <p className="value-prop">{VALUE_PROPOSITION}</p>
             <div className="ia-cta-row">
               <Link className="btn btn--primary" to="/contact">
                 Start a Project
@@ -24,14 +28,6 @@ export function HomePage() {
                 View Work
               </Link>
             </div>
-          </div>
-          <div className="decision-panel">
-            <h3>Best fit for</h3>
-            <ul>
-              <li>Restoration and right-to-repair projects</li>
-              <li>Legacy part digitization and archival</li>
-              <li>Prototype and production prep workflows</li>
-            </ul>
           </div>
         </div>
       </section>
@@ -44,8 +40,8 @@ export function HomePage() {
               <span>Typical response window</span>
             </div>
             <div>
-              <strong>20</strong>
-              <span>Tutorial series roadmap</span>
+              <strong>Scan-to-CAD</strong>
+              <span>Precise digital assets from existing parts</span>
             </div>
             <div>
               <strong>South FL + Remote</strong>
@@ -81,10 +77,11 @@ export function HomePage() {
           <div className="tag">Featured Work</div>
           <div className="featured-work">
             <div className="featured-work-copy">
-              <h2>Railing Guide: scan data to usable part model</h2>
+              <h2>Parts library refresh in progress.</h2>
               <p>
-                Explore the available model, inspect geometry in the 3D viewer, and request the STP
-                file through the license gate.
+                DBG3D is preparing a new approved downloadable part sample. Current project entries
+                remain visible on the Work page, and downloads will return once the replacement file
+                is ready.
               </p>
               <div className="ia-cta-row">
                 <Link className="btn btn--primary" to="/work">
@@ -103,32 +100,6 @@ export function HomePage() {
                 <li>Support notes for implementation</li>
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--alt">
-        <div className="container">
-          <div className="tag">Process Preview</div>
-          <h2 className="section-title">Three stages. No guesswork.</h2>
-          <div className="process-preview-grid">
-            <div className="process-preview-card">
-              <h3>1. Intake</h3>
-              <p>Scope, constraints, and expected outputs are aligned up front.</p>
-            </div>
-            <div className="process-preview-card">
-              <h3>2. Capture + Model</h3>
-              <p>Scanning and CAD reconstruction are executed against real use requirements.</p>
-            </div>
-            <div className="process-preview-card">
-              <h3>3. Delivery</h3>
-              <p>You receive files and support notes ready for practical implementation.</p>
-            </div>
-          </div>
-          <div className="ia-cta-row">
-            <Link className="btn btn--outline" to="/process">
-              View Process
-            </Link>
           </div>
         </div>
       </section>

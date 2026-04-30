@@ -18,3 +18,4 @@ async function post(path, data) {
 export const submitContact = (data) => post('/api/contact', data)
 export const submitYTRequest = (data) => post('/api/youtube', data)
 export const submitDownload = (data) => post('/api/download', data)
+export const submitEmailSignup = (data) => post('/api/email-signup', data)

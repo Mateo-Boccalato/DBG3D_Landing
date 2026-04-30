@@ -5,6 +5,15 @@ import { SERVICES } from '../data/services'
 import { usePageTitle } from '../hooks/usePageTitle'
 import { useScrollToHash } from '../hooks/useScrollToHash'
 
+const INDUSTRIES = [
+  'Aviation',
+  'Automotive',
+  'Marine',
+  'Architecture',
+  'Manufacturing',
+  'Restoration',
+]
+
 export function ServicesPage() {
   const { serviceId } = useParams()
   usePageTitle('Services')
@@ -33,18 +42,10 @@ export function ServicesPage() {
               <Link className="btn btn--primary" to="/contact">
                 Start a Project
               </Link>
-              <Link className="btn btn--outline" to="/process">
-                View Process
+              <Link className="btn btn--outline" to="/work">
+                View Work
               </Link>
             </div>
-          </div>
-          <div className="decision-panel">
-            <h3>Decision checkpoints</h3>
-            <ul>
-              <li>What problem this service solves</li>
-              <li>What files and outputs you receive</li>
-              <li>How scope, timeline, and fit are defined</li>
-            </ul>
           </div>
         </div>
       </section>
@@ -74,6 +75,24 @@ export function ServicesPage() {
                 <Link className="btn btn--primary" style={{ marginTop: 20 }} to="/contact">
                   Start a Project
                 </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--alt">
+        <div className="container">
+          <div className="tag">Industries Served</div>
+          <h2 className="section-title">Equipment-ready workflows for demanding fields.</h2>
+          <p className="section-sub">
+            DBG3D can support teams working across aviation, automotive, marine, architecture, and
+            other physical-product environments where precise digital assets keep projects moving.
+          </p>
+          <div className="industry-grid">
+            {INDUSTRIES.map((industry) => (
+              <div className="industry-card" key={industry}>
+                {industry}
               </div>
             ))}
           </div>

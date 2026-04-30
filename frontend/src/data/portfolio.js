@@ -1,15 +1,4 @@
 export const PORTFOLIO_ITEMS = [
-  {
-    id: 'railguide',
-    title: 'Railing Guide',
-    tier: 'T01 · Household · Beginner',
-    category: ['available', 'household'],
-    description: 'Precision modeled railing guide with two mesh bodies.',
-    tags: ['STP', 'QuickSurface Pro'],
-    available: true,
-    filename: 'Railing-Guide.stp',
-    hasViewer: true,
-  },
   { id: 'sodacan', title: 'Soda Can', tier: 'T02 · Household · Beginner', category: ['household'], description: 'QuickSurface Pro intro model built with revolve and extrude.', tags: ['STP'], available: false, filename: 'Soda-Can.stp', hasViewer: false },
   { id: 'housekey', title: 'House Key', tier: 'T03 · Household · Beginner', category: ['household'], description: 'Thin-flat scan workflow using sketch and cut-solid operations.', tags: ['STP'], available: false, filename: 'House-Key.stp', hasViewer: false },
   { id: 'switch-cover', title: 'Light Switch Cover', tier: 'T04 · Household · Beginner', category: ['household'], description: 'Entry-level prismatic model with draft and fillet operations.', tags: ['STP'], available: false, filename: 'Light-Switch-Cover.stp', hasViewer: false },

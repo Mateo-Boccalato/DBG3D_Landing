@@ -105,6 +105,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   max-width: 560px;
   line-height: 1.7;
 }
+.value-prop {
+  margin-top: 18px;
+  max-width: 660px;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.65;
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
+}
+.about-value-prop {
+  margin: 18px 0;
+}
 .btn {
   display: inline-flex;
   align-items: center;
@@ -159,6 +171,40 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .ia-hero {
   padding-top: 72px;
   padding-bottom: 72px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 12, 15, 0.88) 0%,
+      rgba(10, 12, 15, 0.64) 44%,
+      rgba(10, 12, 15, 0.18) 74%,
+      rgba(10, 12, 15, 0.36) 100%
+    ),
+    radial-gradient(ellipse 60% 45% at 72% 45%, rgba(0, 180, 216, 0.34), transparent 70%),
+    var(--bg2) url('/assets/dbg3d-hero-logo.png') center right / contain no-repeat;
+}
+.ia-hero::before {
+  background-image:
+    linear-gradient(var(--grid-line-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-strong) 1px, transparent 1px);
+  background-size: 52px 52px;
+  opacity: 0.32;
+  z-index: 0;
+}
+.ia-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(10, 12, 15, 0), rgba(10, 12, 15, 0.12)),
+    linear-gradient(90deg, rgba(0, 180, 216, 0.14), transparent 36%);
+  z-index: 0;
+}
+.ia-hero > * {
+  position: relative;
+  z-index: 1;
 }
 .ia-hero-grid {
   display: grid;
@@ -171,6 +217,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-self: end;
   width: 100%;
   max-width: 420px;
+}
+.ia-hero .decision-panel {
+  background: rgba(17, 21, 25, 0.46);
+  border-color: rgba(138, 154, 170, 0.34);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+}
+.ia-hero .ia-cta-row {
+  margin-top: 34px;
 }
 .ia-hero-grid--single {
   grid-template-columns: minmax(0, 1fr);
@@ -310,6 +365,23 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 13px;
   line-height: 1.6;
   padding: 12px 14px;
+}
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+.industry-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius2);
+  padding: 18px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
 }
 .process-grid {
   display: grid;
@@ -1229,6 +1301,25 @@ nav {
 .pf-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .pf-yt-link { font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text2); border: 1px solid var(--border2); padding: 9px 16px; border-radius: var(--radius); transition: all .2s; display: inline-flex; align-items: center; gap: 6px; }
 .pf-yt-link:hover { color: #ff4444; border-color: #ff4444; }
+.portfolio-empty {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius2);
+  padding: 28px;
+  max-width: 720px;
+}
+.portfolio-empty h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.portfolio-empty p {
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
 
 .pf-pending .pf-info { padding: 16px 16px 14px; }
 .pf-thumb { aspect-ratio: 16/9; background: var(--bg3); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
@@ -1649,6 +1740,16 @@ footer {
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .ia-hero-grid,
+  .featured-work {
+    grid-template-columns: 1fr;
+  }
+  .ia-hero-grid > .decision-panel {
+    justify-self: stretch;
+    max-width: none;
+  }
+}
 @media (max-width: 900px) {
   .equipment-grid { grid-template-columns: 1fr; }
   .services-page-grid { grid-template-columns: 1fr; }
@@ -1667,6 +1768,13 @@ footer {
   .process-grid { grid-template-columns: 1fr; }
   .audience-split-grid { grid-template-columns: 1fr; }
   .ia-services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ia-hero {
+    background:
+      linear-gradient(90deg, rgba(10, 12, 15, 0.82), rgba(10, 12, 15, 0.42)),
+      radial-gradient(ellipse 70% 50% at 70% 35%, rgba(0, 180, 216, 0.3), transparent 72%),
+      var(--bg2) url('/assets/dbg3d-hero-logo.png') center / contain no-repeat;
+  }
 }
 @media (max-width: 700px) {
   .nav-links { display: none; }
@@ -1680,8 +1788,14 @@ footer {
   .ia-cta-row .btn { width: 100%; justify-content: center; }
   .ia-services-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
+  .industry-grid { grid-template-columns: 1fr; }
+  .portfolio-empty,
+  .modal {
+    padding: 24px;
+  }
 }
 @media (max-width: 500px) {
+  .container { padding: 0 18px; }
   .services-grid { grid-template-columns: 1fr; }
   .section { padding: 60px 0; }
 }

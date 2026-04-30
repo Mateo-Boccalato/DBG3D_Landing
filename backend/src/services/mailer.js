@@ -58,3 +58,10 @@ export async function sendDownloadNotification(payload) {
     `New download request\n\nName: ${payload.name}\nEmail: ${payload.email}\nFilename: ${payload.filename || 'n/a'}\nAgreed: ${payload.agreed ? 'yes' : 'no'}`,
   )
 }
+
+export async function sendEmailSignupNotification(payload) {
+  await send(
+    'DBG3D Email Signup',
+    `New email signup\n\nEmail: ${payload.email}\nSource: ${payload.source || 'n/a'}`,
+  )
+}

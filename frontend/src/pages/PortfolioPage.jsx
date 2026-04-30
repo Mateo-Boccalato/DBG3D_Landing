@@ -32,8 +32,8 @@ export function PortfolioPage() {
               <Link className="btn btn--primary" to="/contact">
                 Start a Project
               </Link>
-              <Link className="btn btn--outline" to="/process">
-                View Process
+              <Link className="btn btn--outline" to="/services">
+                Explore Services
               </Link>
             </div>
           </div>
@@ -41,8 +41,8 @@ export function PortfolioPage() {
             <h3>Work highlights</h3>
             <ul>
               <li>{PORTFOLIO_ITEMS.length} mapped project entries</li>
-              <li>{availableCount} currently downloadable model</li>
-              <li>Category filters for rapid review</li>
+              <li>{availableCount} currently downloadable models</li>
+              <li>Replacement downloads will reopen through the license gate</li>
             </ul>
           </div>
         </div>
@@ -54,8 +54,8 @@ export function PortfolioPage() {
             <h3>How to use this page</h3>
             <ul>
               <li>Filter by category to focus on relevant parts</li>
-              <li>Use the viewer on available models to inspect geometry</li>
-              <li>Request files through the license gate before download</li>
+              <li>Review planned examples while the approved sample library is refreshed</li>
+              <li>Request custom deliverables through the project form</li>
             </ul>
           </div>
         </div>
@@ -64,15 +64,28 @@ export function PortfolioPage() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <FilterBar active={activeFilter} onChange={setActiveFilter} />
-          <div className="portfolio-grid">
-            {filteredItems.map((item) => (
-              <PortfolioCard
-                item={item}
-                key={item.id}
-                onDownload={(filename) => setModalState({ open: true, filename })}
-              />
-            ))}
-          </div>
+          {filteredItems.length ? (
+            <div className="portfolio-grid">
+              {filteredItems.map((item) => (
+                <PortfolioCard
+                  item={item}
+                  key={item.id}
+                  onDownload={(filename) => setModalState({ open: true, filename })}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="portfolio-empty">
+              <h3>No downloadable files are live right now.</h3>
+              <p>
+                DBG3D is preparing a replacement sample part. Check the other filters for planned
+                project examples, or start a project to discuss a custom deliverable.
+              </p>
+              <Link className="btn btn--primary" to="/contact">
+                Start a Project
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 

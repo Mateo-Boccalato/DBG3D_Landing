@@ -36,17 +36,11 @@ export function Footer() {
           <div>
             <div className="footer-col-title">Company</div>
             <div className="footer-links">
-              <Link className="footer-link" to="/process">
-                Process
-              </Link>
               <Link className="footer-link" to="/about">
                 About
               </Link>
               <Link className="footer-link" to="/work">
                 Work
-              </Link>
-              <Link className="footer-link" to="/resources">
-                Resources
               </Link>
               <Link className="footer-link" to="/contact">
                 Contact

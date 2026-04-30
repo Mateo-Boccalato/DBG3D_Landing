@@ -10,8 +10,6 @@ export const NAV_LINKS = [
       { label: 'Coaching', path: '/services/coaching', serviceId: 'coaching' },
     ],
   },
-  { label: 'Process', path: '/process' },
   { label: 'About', path: '/about' },
-  { label: 'Resources', path: '/resources' },
   { label: 'Start a Project', path: '/contact', cta: true },
 ]

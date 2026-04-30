@@ -1,11 +1,14 @@
 import { usePageTitle } from '../hooks/usePageTitle'
 
+const VALUE_PROPOSITION =
+  "Capturing what exists, enabling what's next — DBG3D turns physical reality into precise digital assets that keep your operations running and your innovations moving forward."
+
 export function AboutPage() {
   usePageTitle('About')
 
   return (
     <div style={{ paddingTop: 64 }}>
-      <section className="section">
+      <section className="section section--alt ia-hero">
         <div className="container">
           <div className="tag">About DBG</div>
           <h1 className="section-title">The person behind the scanner.</h1>
@@ -25,6 +28,7 @@ export function AboutPage() {
                 DBG3D is a specialized workflow studio focused on turning physical parts into clean,
                 usable CAD models through practical scan-first methods.
               </p>
+              <p className="value-prop about-value-prop">{VALUE_PROPOSITION}</p>
               <p className="about-bio">
                 Every project is handled with an engineering mindset: capture what matters, model what
                 is manufacturable, and deliver files that fit the real use case.

@@ -12,7 +12,7 @@ async function decodeDeflateBase64(base64) {
   return JSON.parse(text)
 }
 
-export function ThreeViewer({ meshDataB64 }) {
+export function ThreeViewer({ label = 'Model Preview', meshDataB64 }) {
   const wrapperRef = useRef(null)
   const canvasRef = useRef(null)
   const rendererRef = useRef(null)
@@ -251,7 +251,7 @@ export function ThreeViewer({ meshDataB64 }) {
   return (
     <div className="pf-viewer-wrap" ref={wrapperRef}>
       <canvas className="pf-canvas" ref={canvasRef} style={{ touchAction: 'none' }} />
-      <div className="pf-label">Railing Guide</div>
+      <div className="pf-label">{label}</div>
       <div className="pf-fmt-chip">GLB</div>
       <div className="pf-pills">
         {['solid', 'clay', 'xray', 'wire'].map((mode) => (
