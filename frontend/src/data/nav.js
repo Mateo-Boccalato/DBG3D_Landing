@@ -1,5 +1,4 @@
 export const NAV_LINKS = [
-  { label: 'Work', path: '/work' },
   {
     label: 'Services',
     path: '/services',

@@ -39,9 +39,7 @@ export function Footer() {
               <Link className="footer-link" to="/about">
                 About
               </Link>
-              <Link className="footer-link" to="/work">
-                Work
-              </Link>
+
               <Link className="footer-link" to="/contact">
                 Contact
               </Link>

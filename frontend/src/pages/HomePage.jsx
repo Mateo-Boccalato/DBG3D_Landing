@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { INDUSTRIES } from '../data/industries'
 import { SERVICES } from '../data/services'
 import { usePageTitle } from '../hooks/usePageTitle'
 
@@ -24,8 +25,8 @@ export function HomePage() {
               <Link className="btn btn--primary" to="/contact">
                 Start a Project
               </Link>
-              <Link className="btn btn--outline" to="/work">
-                View Work
+              <Link className="btn btn--outline" to="/services">
+                Explore Services
               </Link>
             </div>
           </div>
@@ -84,8 +85,8 @@ export function HomePage() {
                 is ready.
               </p>
               <div className="ia-cta-row">
-                <Link className="btn btn--primary" to="/work">
-                  View Work
+                <Link className="btn btn--primary" to="/contact">
+                  Start a Project
                 </Link>
                 <Link className="btn btn--outline" to="/contact">
                   Start a Project
@@ -104,6 +105,34 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="section section--alt">
+        <div className="container">
+          <div className="tag">Industries Served</div>
+          <h2 className="section-title">Fields we work in.</h2>
+          <p className="section-sub">
+            From marine restoration to industrial manufacturing — if a part exists, we can digitize
+            it and deliver production-ready CAD.
+          </p>
+          <div className="industry-grid">
+            {INDUSTRIES.map((industry) => (
+              <div className="industry-card" key={industry.id}>
+                <div className="industry-card-icon">{industry.icon}</div>
+                <div className="industry-card-label">{industry.label}</div>
+                <p className="industry-card-desc">{industry.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="ia-cta-row">
+            <Link className="btn btn--primary" to="/contact">
+              Start a Project
+            </Link>
+            <Link className="btn btn--outline" to="/services">
+              See All Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section final-cta">
         <div className="container">
           <h2 className="section-title">Ready to start your project?</h2>
@@ -114,9 +143,9 @@ export function HomePage() {
             <Link className="btn btn--primary" to="/contact">
               Start a Project
             </Link>
-            <Link className="btn btn--outline" to="/work">
-              Review Work Samples
-            </Link>
+              <Link className="btn btn--outline" to="/services">
+                Explore Services
+              </Link>
           </div>
         </div>
       </section>
